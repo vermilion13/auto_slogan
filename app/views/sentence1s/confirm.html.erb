@@ -1,0 +1,13 @@
+<h3>以下の内容で、送信する。</h3>
+
+<%= form_with(model: @sentence1, url: sentence1s_path, local: true) do |form| %>
+  <%= form.hidden_field :sentence_top %>
+
+  <p><%= @sentence1.sentence_top %></p>
+  <%= form.submit  "登録する" %>
+<% end %>
+
+<%= form_with(model: @sentence1, url: new_sentence1_path, local: true, method: 'get') do |form| %>
+  <%= form.hidden_field :sentence_top %>
+  <%= form.submit "もどる",name: 'back' %>
+<% end %>

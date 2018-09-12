@@ -1,0 +1,17 @@
+<h1>構成文章(締め)一覧</h1>
+
+<p><%= notice %></p>
+
+<table>
+  <tr>
+    <th>構成文章(真ん中)</th>
+    <th>アクション</th>
+  </tr>
+
+<% @sentence3.each do |sentence3| %>
+  <tr>
+    <td><%= sentence3.id %> <%= sentence3.sentence_last %></td>
+    <td><%= link_to '詳細確認', sentence3_path(sentence3.id) %>　<%= link_to "編集", edit_sentence3_path(sentence3.id) %>　<%= link_to '削除', sentence3_path(sentence3.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+  </tr>
+<% end %>
+</table>

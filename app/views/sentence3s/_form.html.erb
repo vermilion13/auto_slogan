@@ -1,0 +1,19 @@
+<%= form_with(model: @sentence3, local: true ,url: choose_new_or_edit_3 ) do |form| %>
+
+  <% if @sentence3.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @sentence3.errors.count %>件の投入不足が有ります。</h2>
+      <ul>
+      <% @sentence3.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="sentence">
+    <%= form.label :sentence_last %>
+    <%= form.text_field :sentence_last %>
+  </div>
+  <%= form.submit "登録" %>
+<% end %>

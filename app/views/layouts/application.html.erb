@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AutoSlogan</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+
+<%= link_to '文章1投稿', new_sentence1_path %>　<%= link_to '文章1一覧', sentence1s_path %><br>
+<%= link_to '文章2投稿', new_sentence2_path %>　<%= link_to '文章2一覧', sentence2s_path %><br>
+<%= link_to '文章3投稿', new_sentence3_path %>　<%= link_to '文章3一覧', sentence3s_path %><br>
+<%= link_to '標語投稿', new_slogan_path %>　<%= link_to '標語一覧', slogans_path %><br>
+
+
+    <%= yield %>
+  </body>
+</html>

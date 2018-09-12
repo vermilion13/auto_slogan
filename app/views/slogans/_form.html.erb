@@ -1,0 +1,37 @@
+<%= form_with(model: @slogan, local: true ,url: choose_new_or_edit_s ) do |form| %>
+
+  <% if @slogan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @slogan.errors.count %>件の投入不足が有ります。</h2>
+      <ul>
+      <% @slogan.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<p>標語自動生成</p>
+
+<% @rand_top.each do |sentence1| %>
+<% @rand_center.each do |sentence2| %>
+<% @rand_last.each do |sentence3| %>
+
+
+<p>
+<%= sentence1.sentence_top %>　<%= sentence2.sentence_center %>　<%= sentence3.sentence_last %>
+</p>
+
+
+<%= form.hidden_field :slogan_text, :size=>"60", value: sentence1.sentence_top + "　" + sentence2.sentence_center + "　" + sentence3.sentence_last, readonly: true %>
+
+
+<% end %>
+<% end %>
+<% end %>
+
+  
+<%= form.submit "登録" %>
+<% end %>
