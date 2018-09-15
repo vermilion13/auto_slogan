@@ -4,6 +4,8 @@ class Sentence1sController < ApplicationController
 
   def index
     @sentence1 = Sentence1.all
+    @sentence2 = Sentence2.all
+    @sentence3 = Sentence3.all
   end
 
   def new

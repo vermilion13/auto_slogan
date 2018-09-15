@@ -5,6 +5,7 @@
 <table>
   <tr>
     <th>標語</th>
+    <th>お気に入り</th>
     <th>アクション</th>
   </tr>
 
@@ -12,6 +13,7 @@
 <% @slogan.each do |slogan| %>
   <tr>
     <td><%= slogan.id %> <%= slogan.slogan_text %></td>
+    <td><%= Favorite.where(slogan_id: slogan.id).count %></td>
     <td><%= link_to '詳細確認', slogan_path(slogan.id) %>　<%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
   </tr>
 <% end %>

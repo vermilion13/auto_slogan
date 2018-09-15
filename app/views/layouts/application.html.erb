@@ -10,12 +10,26 @@
 
   <body>
 
+<%= link_to 'TOP画面', root_path %><br>
+<%= link_to '構成文章', sentence1s_path %><br>
+<%= link_to '標語一覧', slogans_path %>　<%= link_to '標語投稿', new_slogan_path %><br>
+<%= link_to 'ユーザー一覧', users_path %><br>
+<br>
 
-<%= link_to '文章1投稿', new_sentence1_path %>　<%= link_to '文章1一覧', sentence1s_path %><br>
-<%= link_to '文章2投稿', new_sentence2_path %>　<%= link_to '文章2一覧', sentence2s_path %><br>
-<%= link_to '文章3投稿', new_sentence3_path %>　<%= link_to '文章3一覧', sentence3s_path %><br>
-<%= link_to '標語投稿', new_slogan_path %>　<%= link_to '標語一覧', slogans_path %><br>
+    <% if logged_in? %>
+      <%= link_to "Profile", user_path(current_user.id) %>
+      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
+    <% else %>
+      <%= link_to "Sign up", new_user_path %>
+      <%= link_to "Login", new_session_path %>
+    <% end %>
 
+
+
+
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+    <% end %>
 
     <%= yield %>
   </body>

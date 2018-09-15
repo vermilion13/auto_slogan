@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get '/top',to: 'slogans#top'
+  root 'slogans#top'
 
   resources :slogans do
     collection do
@@ -28,5 +28,7 @@ Rails.application.routes.draw do
 
   resources :favorites
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :favorites, only: [:create, :destroy]
 
 end

@@ -4,6 +4,8 @@ class SlogansController < ApplicationController
 
   def index
     @slogan = Slogan.all
+#    @favorite = Favorite.group("slogan_id").count #ハッシュ化はしなくて良い気がする
+#    @favorite_count = Favorite.where(slogan_id: @slogan.find_by(params[:id])).count
   end
 
   def new
@@ -20,6 +22,7 @@ class SlogansController < ApplicationController
 
   def create
     @slogan = Slogan.new(slogan_params)
+    @slogan.user_id = current_user.id 
     if @slogan.save
       redirect_to slogans_path, notice: "登録を完了しました。"
     else
@@ -33,6 +36,7 @@ class SlogansController < ApplicationController
   end
 
   def show
+    @favorite = current_user.favorites.find_by(slogan_id: @slogan.id)
   end
 
   def edit

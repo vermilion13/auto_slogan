@@ -17,7 +17,7 @@ class Sentence3sController < ApplicationController
   def create
     @sentence3 = Sentence3.new(sentence3_params)
     if @sentence3.save
-      redirect_to sentence3s_path, notice: "登録を完了しました。"
+      redirect_to sentence1s_path, notice: "登録を完了しました。"
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class Sentence3sController < ApplicationController
 
   def update
     if @sentence3.update(sentence3_params)
-      redirect_to sentence3s_path, notice: "編集を完了しました。"
+      redirect_to sentence1s_path, notice: "編集を完了しました。"
     else
       render 'edit'
     end
@@ -44,7 +44,7 @@ class Sentence3sController < ApplicationController
 
   def destroy
     @sentence3.destroy
-    redirect_to sentence3s_path, notice:"削除を完了しました。"
+    redirect_to sentence1s_path, notice:"削除を完了しました。"
   end
 
   private
