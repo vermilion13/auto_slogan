@@ -10,7 +10,7 @@ class SlogansController < ApplicationController
     @rand_top = Sentence1.order("RANDOM()").limit(1)
     @rand_center = Sentence2.order("RANDOM()").limit(1)
     @rand_last = Sentence3.order("RANDOM()").limit(1)
-    
+
     if params[:back]
       @slogan = Slogan.new(slogan_params)
     else
