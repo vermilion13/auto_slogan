@@ -1,4 +1,4 @@
-        <%= form_with(model: @slogan, local: true ,url: choose_new_or_edit_s ) do |form| %>
+        <%= form_with(model: @slogan, local: true ) do |form| %>
           <% if @slogan.errors.any? %>
             <div id="error_explanation">
             <h2><%= @slogan.errors.count %>件の投入不足が有ります。</h2>
@@ -22,11 +22,12 @@
           <% end %>
 
           <% if logged_in? %>
-            <%= form.submit "登録" %>
+            <%= form.submit "登録",data: { confirm: '自動生成の為、このまま登録されます' } %>
           <% else %>
             <p>※登録を希望する場合はログインが必要です</p>
           <% end %>
           <% end %>
+
 
         </section>
     </article>

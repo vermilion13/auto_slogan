@@ -12,7 +12,7 @@
               <% @slogan.each do |slogan| %>
               <tr>
                 <td class=num><%= slogan.id %></td>
-                <td><%= slogan.slogan_text %></td>
+                <td><%= image_tag(slogan.user.image) %> <%= slogan.slogan_text %></td>
                 <td class=num><%= Favorite.where(slogan_id: slogan.id).count %></td>
                 <td>
                     <% if logged_in? %>
