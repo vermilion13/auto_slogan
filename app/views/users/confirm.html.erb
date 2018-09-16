@@ -1,34 +1,36 @@
 <div class="main clearfix">
-    <article class="content">
-        <section>
-            <h1>以下の内容でよろしいですか？</h1>
+  <article class="content">
+    <section>
+      <h1>以下の内容でよろしいですか？</h1>
             
-                <%= form_with(model: @user, url: users_path, local: true) do |form| %>
-                <%= form.hidden_field :name %>
-                <%= form.hidden_field :email %>
-                <%= form.hidden_field :image_cache %>
-                <table>
-                    <tr>
-                        <td>名前</td>
-                        <td><%= @user.name %></td>
-                    </tr>    
-                    <tr>
-                        <td>メアド</td>
-                        <td><%= @user.email %></td>
-                    </tr>    
-                    <tr>
-                        <td>aアイコン</td>
-                        <td><%= image_tag(@user.image) %></td>
-                    </tr>    
-                </table>
-                <%= form.submit  "登録する" %>
-                <% end %>
+      <%= form_with(model: @user, url: users_path, local: true) do |form| %>
+        <%= form.hidden_field :name %>
+        <%= form.hidden_field :email %>
+        <%= form.hidden_field :image_cache %>
+        <table>
+          <tr>
+            <td>名前</td>
+            <td><%= @user.name %></td>
+          </tr>    
+          <tr>
+            <td>メアド</td>
+            <td><%= @user.email %></td>
+          </tr>    
+          <tr>
+            <td>アイコン</td>
+            <td><%= image_tag(@user.image) %></td>
+          </tr>    
+        </table>
 
-                <%= form_with(model: @user, url: new_user_path, local: true, method: 'get') do |form| %>
-                <%= form.hidden_field :name %>
-                <%= form.hidden_field :email %>
-                <%= form.submit "もどる", name: 'back' %>
-                <% end %>
-        </section>
-    </article>
+        <%= form.submit  "登録する" %>
+        <% end %>
+
+      <%= form_with(model: @user, url: new_user_path, local: true, method: 'get') do |form| %>
+      <%= form.hidden_field :name %>
+      <%= form.hidden_field :email %>
+      <%= form.submit "もどる", name: 'back' %>
+      <% end %>
+
+    </section>
+  </article>
 </div>

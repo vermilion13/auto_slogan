@@ -1,17 +1,20 @@
-<h1>登録ユーザー一覧</h1>
+<div class="main clearfix">
+  <article class="content">
+    <section>
+      <h1>登録ユーザー一覧(隠し機能)</h1>
 
-<p><%= notice %></p>
+      <p><%= notice %></p>
 
-<table>
-  <tr>
-    <th>ユーザー</th>
-    <th>アクション</th>
-  </tr>
+      <table>
+        <tr>
+          <th>ユーザー</th>
+          <th>アクション</th>
+        </tr>
 
-<% @user.each do |user| %>
-  <tr>
-    <td><%= user.name %></td>
-    <td><%= link_to "編集", edit_user_path(user.id) %>　<%= link_to '削除', user_path(user.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
-  </tr>
-<% end %>
-</table>
+        <% @user.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= link_to "編集", edit_user_path(user.id) %>　<%= link_to '削除', user_path(user.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+        </tr>
+        <% end %>
+      </table>

@@ -1,16 +1,16 @@
 <div class="main clearfix">
-    <article class="content">
-        <section>
-          <h1>以下の内容で登録して良いですか？</h1>
+  <article class="content">
+    <section>
+      <h1>以下の内容で登録して良いですか？</h1>
 
-<%= form_with(model: @sentence2, url: sentence2s_path, local: true) do |form| %>
-  <%= form.hidden_field :sentence_center %>
+      <%= form_with(model: @sentence2, url: sentence2s_path, local: true) do |form| %>
+        <%= form.hidden_field :sentence_center %>
 
-  <p><%= @sentence2.sentence_center %></p>
-  <%= form.submit  "登録する" %>
-<% end %>
+        <p><%= @sentence2.sentence_center %></p>
+        <%= form.submit  "登録する" %>
+      <% end %>
 
-<%= form_with(model: @sentence2, url: new_sentence2_path, local: true, method: 'get') do |form| %>
-  <%= form.hidden_field :sentence_center %>
-  <%= form.submit "もどる",name: 'back' %>
-<% end %>
+      <%= form_with(model: @sentence2, url: new_sentence2_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :sentence_center %>
+        <%= form.submit "もどる",name: 'back' %>
+      <% end %>

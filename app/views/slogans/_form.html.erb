@@ -10,31 +10,27 @@
           </div>
         <% end %>
 
-          <% @rand_top.each do |sentence1| %>
-          <% @rand_center.each do |sentence2| %>
-          <% @rand_last.each do |sentence3| %>
+        <% @rand_top.each do |sentence1| %>
+        <% @rand_center.each do |sentence2| %>
+        <% @rand_last.each do |sentence3| %>
 
           <p class="basic"><%= sentence1.sentence_top %>　<%= sentence2.sentence_center %>　<%= sentence3.sentence_last %></p>
           <%= form.hidden_field :slogan_text, :size=>"60", value: sentence1.sentence_top + "　" + sentence2.sentence_center + "　" + sentence3.sentence_last, readonly: true %>
 
-          <% end %>
-          <% end %>
-          <% end %>
+        <% end %>
+        <% end %>
+        <% end %>
 
+        <% if logged_in? %>
+          <%= form.submit "登録",data: { confirm: '自動生成の為、このまま登録されます' } %>
+        <% else %>
+          <p>※登録を希望する場合はログインが必要です</p>
+        <% end %>
+        <% end %>
           
+        <br><br>
+        <%= link_to '再生成', new_slogan_path, class: 'btn btn-info' %>
 
-
-          <% if logged_in? %>
-            <%= form.submit "登録",data: { confirm: '自動生成の為、このまま登録されます' } %>
-          <% else %>
-            <p>※登録を希望する場合はログインが必要です</p>
-          <% end %>
-          <% end %>
-          
-          <br><br>
-          <%= link_to '再生成', new_slogan_path, class: 'btn btn-info' %>
-
-
-        </section>
-    </article>
+</section>
+</article>
 </div>

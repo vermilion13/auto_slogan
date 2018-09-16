@@ -1,39 +1,38 @@
 <div class="main clearfix">
-    <article class="content">
-        <section>
-            <h1><%= @user.name %>さんのマイページ</h1>
-            
-            <table>
-                <tr>
-                    <td>登録名</td>
-                    <td><%= @user.name %></td>
-                </tr>
-                <tr>
-                    <td>登録メアド</td>
-                    <td><%= @user.email %></td>
-                </tr>
-                <tr>
-                    <td>アイコン</td>
-                    <td><%= image_tag @user.image %></td>
-                </tr>
-            </table>
+  <article class="content">
+    <section>
+      <h1><%= @user.name %>さんのマイページ</h1>
+    
+      <table>
+        <tr>
+          <td>登録名</td>
+          <td><%= @user.name %></td>
+        </tr>
+        <tr>
+          <td>登録メアド</td>
+          <td><%= @user.email %></td>
+        </tr>
+        <tr>
+          <td>アイコン</td>
+          <td><%= image_tag @user.image %></td>
+        </tr>
+      </table>
 
-            <br>
-            <p><%= link_to '編集する', edit_user_path, class: 'btn btn-default' %></p>
-            <br>
+      <br>
+      <p><%= link_to '編集する', edit_user_path, class: 'btn btn-default' %></p>
+      <br>
 
-            <h1>お気に入りの標語</h1>
-                <div class="row">
-                    <% @favorites_slogans.each do |slogan| %>
-                        <div class="col-xs-12 col-md-6 blog-panel">
-                            <p><span><%= slogan.slogan_text %></span></p>
-                            <div class="blog-links">
-                            <%= link_to 'お気に入り変更', slogan_path(slogan.id), class: 'btn btn-default' %>
-                        </div>
-                    </div>
-                    <% end %>
-                    
+      <h1>お気に入りの標語</h1>
+        <div class="row">
+          <% @favorites_slogans.each do |slogan| %>
+            <div class="col-xs-12 col-md-6 blog-panel">
+              <p><span><%= slogan.slogan_text %></span></p>
+              <div class="blog-links">
+              <%= link_to 'お気に入り変更', slogan_path(slogan.id), class: 'btn btn-default' %>
+            </div>
+        </div>
+        <% end %>
 
-        </section>
-    </article>
+    </section>
+  </article>
 </div>

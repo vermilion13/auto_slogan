@@ -1,20 +1,19 @@
 <div class="main clearfix">
-    <article class="content">
-        <section>
-            <h1>以下の内容で登録して良いですか？</h1>
+  <article class="content">
+    <section>
+      <h1>以下の内容で登録して良いですか？</h1>
+      
+      <%= form_with(model: @slogan, url: slogans_path, local: true) do |form| %>
+        <%= form.hidden_field :slogan_text %>
+        <p class="basic"><%= @slogan.slogan_text %></p>
+        <%= form.submit  "登録する" %>
+      <% end %>
 
-            <%= form_with(model: @slogan, url: slogans_path, local: true) do |form| %>
-            <%= form.hidden_field :slogan_text %>
+      <%= form_with(model: @slogan, url: new_slogan_path, local: true, method: 'get') do |form| %>
+        <%= form.hidden_field :slogan_text %>
+        <%= form.submit "もどる",name: 'back' %>
+      <% end %>
 
-            <p class="basic"><%= @slogan.slogan_text %></p>
-            <%= form.submit  "登録する" %>
-            <% end %>
-
-            <%= form_with(model: @slogan, url: new_slogan_path, local: true, method: 'get') do |form| %>
-            <%= form.hidden_field :slogan_text %>
-            <%= form.submit "もどる",name: 'back' %>
-            <% end %>
-
-        </section>
-    </article>
+    </section>
+  </article>
 </div>

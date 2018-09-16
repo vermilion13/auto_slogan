@@ -19,19 +19,19 @@
             <li><%= link_to '標語生成', new_slogan_path %></li>
             <li><%= link_to '標語一覧', slogans_path %></li>
             <li><%= link_to '構成文章', sentence1s_path %></li>
-              <% if logged_in? %>
-                <li><%= link_to "マイページ", user_path(current_user.id) %></li>
-                <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
-              <% else %>
-                <li><%= link_to 'サインアップ', new_user_path %></li>
-                <li><%= link_to 'ログイン', new_session_path %></li>
-              <% end %>
+            <% if logged_in? %>
+              <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+              <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'サインアップ', new_user_path %></li>
+              <li><%= link_to 'ログイン', new_session_path %></li>
+            <% end %>
         </ul>
       </nav>
 
-        <% flash.each do |key, value| %>
-        <%= content_tag(:div, value, class: "#{key}") %>
-        <% end %>
+      <% flash.each do |key, value| %>
+      <%= content_tag(:div, value, class: "#{key}") %>
+      <% end %>
 
       <%= yield %>
 

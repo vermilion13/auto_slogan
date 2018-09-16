@@ -18,6 +18,7 @@ class Sentence1sController < ApplicationController
 
   def create
     @sentence1 = Sentence1.new(sentence1_params)
+
     if @sentence1.save
       redirect_to sentence1s_path, notice: "登録を完了しました。"
     else
@@ -58,6 +59,5 @@ class Sentence1sController < ApplicationController
   def set_sentence1
     @sentence1 = Sentence1.find(params[:id])
   end
-
 
 end
