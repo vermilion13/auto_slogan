@@ -1,3 +1,13 @@
+<script>
+$(function() {
+  $('#sorter').tablesorter({
+     headers: {
+       1: {sorter:false}
+     }
+  });
+});
+</script>
+
 <div class="main clearfix">
     <article class="content">
         <section>
@@ -7,26 +17,30 @@
             <p>お気に入りの標語を『お気に入り登録』すると、マイページで確認可能になります。</p>
             <p>尚、テーブルタイトルをクリックすると、登録順かお気に入り登録数でソートが可能です。</p>
 
-            <table>
-              <tr><th>登録順</th><th>標語</th><th>お気に入り<br>登録数</th><th>アクション</th></tr>
-              <% @slogan.each do |slogan| %>
-              <tr>
-                <td class=num><%= slogan.id %></td>
-                <td><%= image_tag(slogan.user.image) %> <%= slogan.slogan_text %></td>
-                <td class=num><%= Favorite.where(slogan_id: slogan.id).count %></td>
-                <td>
-                    <% if logged_in? %>
-                        <%= link_to '評価する', slogan_path(slogan.id) %>
-                      <% if slogan.user_id == current_user.id %>
-                      　<%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
-                      <% else %>
-                      <% end %>
-                    <% else %>
-                        ※ログイン専用機能です
-                    <% end %>
-                </td>
-              </tr>
-              <% end %>
+            <table id="sorter" class="tablesorter">
+                <thead>
+                    <tr><th>登録順</th><th>標語</th><th>お気に入り<br>登録数</th><th>アクション</th></tr>
+                </thead>
+                <tbody>
+                <% @slogan.each do |slogan| %>
+                <tr>
+                    <td class=num><%= slogan.id %></td>
+                    <td><span class="icon"><%= image_tag(slogan.user.image) %></span> <%= slogan.slogan_text %></td>
+                    <td class=num><%= Favorite.where(slogan_id: slogan.id).count %></td>
+                    <td>
+                        <% if logged_in? %>
+                            <%= link_to '評価する', slogan_path(slogan.id) %>
+                          <% if slogan.user_id == current_user.id %>
+                          　<%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+                          <% else %>
+                          <% end %>
+                        <% else %>
+                            ※ログイン専用機能です
+                        <% end %>
+                    </td>
+                </tr>
+                <% end %>
+                </tbody>
             </table>
 
             <br>

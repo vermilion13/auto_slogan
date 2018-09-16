@@ -124,7 +124,7 @@ div.blog-panel {
 }
 
 
-span.index img{
+span.icon img{
     max-width: 150px;
 	max-height: 150px;
 }
@@ -141,7 +141,8 @@ table{
 th{
     border: dashed 1px #666;
     background-color: #ccc;
-	padding: 6px;
+    margin: 6px;
+	padding: 6px 18px 6px;
     text-align: center;
     font-size: 1.6rem;
     font-weight: bold;
@@ -154,6 +155,21 @@ td{
 td.num{
     text-align: center;
 }
+
+table.tablesorter thead tr .header {
+    height: 80px;
+	background-image: url(image_table_bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(image_table_asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(image_table_desc.gif);
+}
+
 
 
 /*フッター*/
