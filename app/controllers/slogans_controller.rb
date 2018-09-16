@@ -4,8 +4,8 @@ class SlogansController < ApplicationController
 
   def index
     @slogan = Slogan.all
-#    @favorite = Favorite.group("slogan_id").count #ハッシュ化はしなくて良い気がする
-#    @favorite_count = Favorite.where(slogan_id: @slogan.find_by(params[:id])).count
+#    @favorite = Favorite.group("slogan_id").count #没：ハッシュ化→ソート→eachdoは手間
+#    @favorite_count = Favorite.where(slogan_id: @slogan.find_by(params[:id])).count #没：これだとslogan.idを取得出来ない
   end
 
   def new

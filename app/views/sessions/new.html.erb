@@ -1,4 +1,6 @@
-<h1>Log in</h1>
+<div class="main clearfix">
+    <article class="content">
+        <section><h1>Log in</h1>
 <%= form_with(scope: :session, url: sessions_path, local: true) do |f| %>
 
   <%= f.label :email %>
@@ -9,3 +11,7 @@
 
   <%= f.submit "Log in" %>
 <% end %>
+
+        </section>
+    </article>
+</div>

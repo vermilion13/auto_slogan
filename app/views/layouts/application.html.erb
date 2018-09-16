@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AutoSlogan</title>
+    <title>標語自動生成</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="container">
+      <header class="header clearfix">
+        <%= image_tag('image_top.png') %>
+      </header>
 
-<%= link_to 'TOP画面', root_path %><br>
-<%= link_to '構成文章', sentence1s_path %><br>
-<%= link_to '標語一覧', slogans_path %>　<%= link_to '標語投稿', new_slogan_path %><br>
-<%= link_to 'ユーザー一覧', users_path %><br>
-<br>
+      <nav class="navi clearfix">
+        <ul>
+            <li><%= link_to 'TOPページ', root_path %></li>
+            <li><%= link_to '標語生成', new_slogan_path %></li>
+            <li><%= link_to '標語一覧', slogans_path %></li>
+            <li><%= link_to '構成文章', sentence1s_path %></li>
+              <% if logged_in? %>
+                <li><%= link_to "マイページ", user_path(current_user.id) %></li>
+                <li><%= link_to "ログアウト", session_path(current_user.id), method: :delete %></li>
+              <% else %>
+                <li><%= link_to 'サインアップ', new_user_path %></li>
+                <li><%= link_to 'ログイン', new_session_path %></li>
+              <% end %>
+        </ul>
+      </nav>
 
-    <% if logged_in? %>
-      <%= link_to "Profile", user_path(current_user.id) %>
-      <%= link_to "Logout", session_path(current_user.id), method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_path %>
-      <%= link_to "Login", new_session_path %>
-    <% end %>
+        <% flash.each do |key, value| %>
+        <%= content_tag(:div, value, class: "#{key}") %>
+        <% end %>
 
+      <%= yield %>
 
-
-
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value, class: "#{key}") %>
-    <% end %>
-
-    <%= yield %>
+      <footer class="footer">
+        <p>Copyright c 2018 千田 玄 for fullstack NTTコムチェオ1月期</p>
+      </footer>
+    </div>
   </body>
 </html>

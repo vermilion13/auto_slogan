@@ -1,4 +1,7 @@
-<h1>サインアップ</h1>
+<div class="main clearfix">
+    <article class="content">
+        <section>
+          <h1>サインアップ</h1>
 
 <% if @user.errors.any? %>
   <div id="error_explanation">
@@ -26,3 +29,7 @@
 
   <%= f.submit "サインアップ" %>
 <% end %>
+
+        </section>
+    </article>
+</div>

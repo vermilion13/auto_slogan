@@ -1,3 +1,176 @@
-// Place all the styles related to the slogans controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/*全体*/
+
+html {
+    height: 100%;
+    font-size: 75%;
+}
+
+body {
+    width: 980px;
+    margin: 0 auto;
+    background-color:#ddd;
+}
+
+.container{
+  width: 980px;
+  margin: 0 auto;
+  position: relative;
+  min-height: 100%;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+
+/*ヘッダ*/
+
+.header {
+    background-color: #808080;
+    height: 216px;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+
+/*ナビ*/
+
+.navi{
+    width: 980px;
+    margin-top: 6px;
+    background-color: #808080;
+}
+
+.navi li a{
+    list-style: none;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    float: left;
+    padding: 10px;
+    margin: 0.1rem;
+}
+
+.navi li a:hover {
+    background-color: #A0A0A0;
+    text-decoration: underline;
+}
+
+
+/*サイド＆メイン*/
+
+.main{
+    width: 980px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-bottom: 46px;
+}
+
+/*コンテンツ*/
+
+.content{
+    width: 100%;
+    margin-right: 20px;
+    float: left;
+    background-color: #eee;
+    font-size: 1rem;
+}
+
+.content section{
+    margin-left: 6px;
+    margin-bottom: 6px;
+}
+
+h1{
+    font-size:2rem;
+    margin-top: 6px;
+    margin-right: 6px;
+    padding: 0.5rem;
+    color: #000;
+    background-color: #ddd;
+    border-left: solid 6px #808080;
+}
+
+h2{
+    font-size:1.5rem;
+    margin-top: 6px;
+    margin-left: 12px;
+    margin-right: 6px;
+    padding: 0.5rem;
+    color: #000;
+    background-color: #ddd;
+    border-left: solid 6px #a0a0a0;
+    border-bottom: solid 1px #a0a0a0;
+}
+
+div.blog-panel {
+    font-size:1.5rem;
+    height: 100px;
+    margin: 20px 0;
+    padding: 10px;
+}
+
+.blog-panel span {
+    background-color:#ddd;
+}
+
+
+span.index img{
+    max-width: 150px;
+	max-height: 150px;
+}
+
+p.basic{
+    font-size: 2.5rem;    
+
+}
+
+table{
+    border-collapse: collapse;
+	border: solid 2px #666;
+}
+th{
+    border: dashed 1px #666;
+    background-color: #ccc;
+	padding: 6px;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+td{
+	padding: 6px;
+    border: dashed 1px #666;
+    font-size: 1.4rem;   
+}
+td.num{
+    text-align: center;
+}
+
+
+/*フッター*/
+
+.footer{
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  background-color: #808080;
+  display: table;
+}
+.footer p {
+  font-size: 1rem;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  display: table-cell;
+}
+

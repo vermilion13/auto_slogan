@@ -1,20 +1,37 @@
-<h1>標語一覧</h1>
+<div class="main clearfix">
+    <article class="content">
+        <section>
+            <h1>標語一覧</h1>
 
-<p><%= notice %></p>
+            <p>ユーザーの皆様が登録した標語の一覧ページです。</p>
+            <p>お気に入りの標語を『お気に入り登録』すると、マイページで確認可能になります。</p>
+            <p>尚、テーブルタイトルをクリックすると、登録順かお気に入り登録数でソートが可能です。</p>
 
-<table>
-  <tr>
-    <th>標語</th>
-    <th>お気に入り</th>
-    <th>アクション</th>
-  </tr>
+            <table>
+              <tr><th>登録順</th><th>標語</th><th>お気に入り<br>登録数</th><th>アクション</th></tr>
+              <% @slogan.each do |slogan| %>
+              <tr>
+                <td class=num><%= slogan.id %></td>
+                <td><%= slogan.slogan_text %></td>
+                <td class=num><%= Favorite.where(slogan_id: slogan.id).count %></td>
+                <td>
+                    <% if logged_in? %>
+                        <%= link_to '評価する', slogan_path(slogan.id) %>
+                      <% if slogan.user_id == current_user.id %>
+                      　<%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+                      <% else %>
+                      <% end %>
+                    <% else %>
+                        ※ログイン専用機能です
+                    <% end %>
+                </td>
+              </tr>
+              <% end %>
+            </table>
 
+            <br>
+            <p>※標語自動生成は『ランダム性』が特徴なので、内容の編集は出来ません(削除は可)。</p>
 
-<% @slogan.each do |slogan| %>
-  <tr>
-    <td><%= slogan.id %> <%= slogan.slogan_text %></td>
-    <td><%= Favorite.where(slogan_id: slogan.id).count %></td>
-    <td><%= link_to '詳細確認', slogan_path(slogan.id) %>　<%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
-  </tr>
-<% end %>
-</table>
+        </section>
+    </article>
+</div>
