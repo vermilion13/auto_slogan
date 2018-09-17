@@ -27,15 +27,15 @@ $(function() {
             <td class=num><%= slogan.id %></td>
             <td><span class="icon"><%= image_tag(slogan.user.image) %></span> <%= slogan.slogan_text %></td>
             <td class=num><%= Favorite.where(slogan_id: slogan.id).count %></td>
-            <td>
+            <td style=text-align:center;>
               <% if logged_in? %>
-                <%= link_to '評価する', slogan_path(slogan.id) %>
                 <% if slogan.user_id == current_user.id %>
-                  <%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %></td>
+                  <%= link_to '削除', slogan_path(slogan.id), method: :delete ,data: { confirm: '削除しますか？' } %>
                 <% else %>
+                  <%= link_to '評価', slogan_path(slogan.id) %> 
                 <% end %>
               <% else %>
-                ※ログイン専用機能です
+              ※ログイン専用機能です
               <% end %>
             </td>
           </tr>
